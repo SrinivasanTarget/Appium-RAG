@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+
+
+<style>
+    body{
+  background: #18181B;
+}
+
+.main{
+  font-family: "Noto Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: #FDFDFD;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: white;
+}
+
+h3 {
+  font-size: 1.5rem;
+  background: #0c087c;
+  padding: 10px;
+  margin: 0px;
+  border: 1px solid #6b7280;}
+
+.extended-title{
+  width:100%;
+}
+
+#gsk-overview{
+  display:flex;
+}
+
+h4 {
+  font-size: 1rem;
+  background: #27272A;
+  padding: 10px;
+  margin: 0px;
+  border-bottom: 1px solid #6b7280;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 3px;
+  color:#000000;
+}
+
+.header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header > * {
+  margin-inline: 20px;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  padding:10px;
+  border: 1px solid #27272A;
+}
+
+.flex-row>div {
+  flex: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+progress[value] {
+  --background: #6D6D6D;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  height: 4px;
+  margin: 0 10px;
+  border-radius: 10em;
+  background: var(--background);
+}
+
+progress[value]::-webkit-progress-bar {
+  border-radius: 10em;
+  background: var(--background);
+}
+
+progress[value]::-webkit-progress-value {
+  border-radius: 10em;
+  background: var(--color);
+}
+
+progress[value]::-moz-progress-bar {
+  border-radius: 10em;
+  background: var(--color);
+}
+
+label {
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  margin: 20px 0;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #27272A;
+  background-color: #27272A;
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  color: #ffffff;
+  font-size:1.2rem;
+}
+
+.tab div {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.tab button:hover {
+  background-color: #18181B;
+}
+
+.tab-title{
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom:-5px;
+}
+
+.tab button.active {
+  background-color: #18181B;
+  border-top: 1px solid #6b7280;
+  border-bottom: 1px solid #18181B;
+  border-left: 1px solid #6b7280;
+  border-right: 1px solid #6b7280;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  background: #18181B;
+  border: 1px solid #27272A;
+  border-top: 1px solid #6b7280;
+  margin-top: -2px;
+}
+
+#gsk-advice {
+  display: flex;
+  justify-content: center;
+}
+
+#gsk-metrics{
+  width:100%;
+}
+
+#recommendation {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #e1ce86;
+  color: #27272A;
+  width:95%;
+  box-shadow: 0 4px 8px 0 #000000, 0 6px 20px 0 #000000;
+  font-size: 12pt;
+}
+
+.separator {
+  margin: 20px 0;
+}
+
+.separator-border {
+  margin: 20px 0;
+  border-bottom: 1px solid #6b7280;
+}
+
+#gsk-rag{
+  margin: 32px 28px;
+  padding: 12px 24px;
+  background-color: #111516;
+}
+
+.section-container {
+  margin-bottom: 32px;
+}
+
+  .components-container {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    gap: 0 32px;
+  }
+
+    .component-card {
+      background-color: #14191B;
+      border-radius: 16px;
+      padding: 28px 32px 32px 32px;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      margin-top: 32px;
+      flex-grow: 1;
+    }
+
+    .component-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: #B1B1B1;
+      padding-bottom: 8px;
+    }
+
+    .component-value {
+      font-size: 32px;
+      font-weight: 500;
+      padding-bottom: 12px;
+    }
+      
+      .text-green {
+        color: #04B543;
+      }
+      
+      .text-orange {
+        color: #E76E0F;
+      }
+      
+      .text-red {
+        color: #EA3829;
+      }
+
+      .tooltip {
+        position: relative;
+        display: inline-block;
+      }
+
+      .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: #464646;
+        color: #E6E6E6;
+        text-align: center;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        top: 150%;
+        left: 50%;
+        margin-left: -60px;
+        font-size: 12px;
+        padding: 12px;
+      }
+      
+      .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent black transparent;
+      }
+      
+      .tooltip:hover .tooltiptext {
+        visibility: visible;
+      }
+
+    .overall-card {
+      background-color: #026836;
+      border-radius: 16px;
+      padding: 28px 32px 32px 32px;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 32px;
+      flex-grow: 1;
+    }
+  
+    .overall-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: #E6E6E6;
+      padding: 14px 0 8px 0;
+      text-transform: uppercase;
+     }
+  
+    .overall-value {
+      font-size: 32px;
+      font-weight: 500;
+      padding-bottom: 12px;
+      color: #E6E6E6;
+    }
+
+.section-title {
+  font-size: 12px;
+  color: #B1B1B1;
+  margin-bottom: 20px;
+  text-align: left;
+  width: 100%;
+}
+
+.section-content {
+  color: #E6E6E6;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.section-card {
+  background-color: #14191B;
+  border-radius: 16px;
+  padding: 28px 32px 32px 32px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.correctness-indicator{
+  padding: 20px;
+  border-radius: 50px;
+  font-size: 16pt;
+  box-shadow: 0 4px 8px 0 #000000, 0 6px 20px 0 #000000;
+  text-align: center;
+}
+
+.metric-title{
+  margin: -2px;
+  border-bottom: none;
+}
+
+.hist-row {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: space-around;
+  width: 85%;
+}
+
+.hist-row>div {
+  flex: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.tab-row{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#component-table{
+  width:50%;
+  margin-top: 10px;
+}
+
+.green{
+  background-color: #0a980a;
+}
+
+.orange {
+  background-color: #e5b62a;
+}
+
+.red {
+  background-color: #ba0e0e;
+}
+
+.progress-green {
+  --color: #04B543;
+}
+
+.progress-orange {
+  --color: #E76E0F;
+}
+
+.progress-red {
+  --color: #EA3829;
+}
+
+.corr-plot{
+  flex: 1;
+  padding-left: 2%;
+}
+
+.tooltip-text {
+  position: absolute;
+  display: none;
+  visibility: hidden;
+  z-index: 1;
+  top: 100%;
+  left: 0%;
+  width: 100%;
+  color: white;
+  font-size: 12px;
+  background-color: #2d3d4c;
+  border-radius: 10px;
+  padding: 10px 15px 10px 15px;
+}
+
+#fade {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+#delay {
+  opacity: 0;
+  transition: opacity 0.2s;
+  transition-delay: 1s;
+}
+
+td {
+  position: relative;
+}
+
+tr:hover .tooltip-text {
+  display: block;
+  visibility: visible;
+}
+
+.tr:hover #fade {
+  opacity: 1;
+}
+
+.tr:hover #delay {
+  opacity: 1;
+}
+
+.callout {
+  padding: 0.5rem 1rem 0.5rem 3rem;
+  background: #D9EDF9;
+  border: 3px solid #0088D1;
+  color: #272eb5;
+  position: relative;
+  max-width: 40rem;
+  border-radius: 10px;
+  margin-top: 10%;
+  font-size: 11pt;
+}
+
+.callout-icon {
+  content: "";
+
+  /* SVG via a data URI! */
+  background-size: cover;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: block;
+  position: absolute;
+  left: 0.9rem;
+  top: 1.1rem;
+}
+
+.callout-icon svg{
+  fill: #016ca7;
+}
+.callout p+p {
+  margin-top: 1em;
+}
+
+.callout a {
+  color: #272eb5;
+  font-weight: bold;
+}
+
+#gsk-logo {
+  padding-top: 10px;
+}
+</style>
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-3.3.4.min.js" integrity="sha384-5QIrjQuyo4I/x6DK/Sau33lcA3hT2TCZGr9vbk+2ebd7Da6FnR1amdM+9B5xOrSf" crossorigin="anonymous"></script>
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.3.4.min.js" integrity="sha384-tXTWPp/bAKa+K9RPuXh7DNvye0Mv+P+6y4rAMVy+pWapsnXg9UG7g20WZ0N4i28A" crossorigin="anonymous"></script>
+
+
+
+
+
+<div class="main">
+    <div id="gsk-rag" class="dark:text-white dark:bg-zinc-800 rounded border border-gray-500">
+        <div class="header border-b border-b-gray-500">
+            
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="30" viewBox="0 0 30 15" fill="none" id="gsk-logo">
+                    <path fill="#fff" fill-rule="evenodd"
+                        d="M22.504 1.549a4.196 4.196 0 0 1 2.573-.887v.002a3.783 3.783 0 0 1 2.706 1.086 3.783 3.783 0 0 1 1.126 2.69 3.771 3.771 0 0 1-1.126 2.69 3.77 3.77 0 0 1-2.706 1.085l-4.794.011-2.533 3.467L8.203 15l2.881-3.335a9.829 9.829 0 0 1-4.663-1.68H3.185L0 7.163h3.934C4.263 3.165 8.187 0 12.96 0c2.24 0 4.489.696 6.175 1.909a7.423 7.423 0 0 1 1.882 1.919 4.194 4.194 0 0 1 1.487-2.28ZM7.05 3.249l3.91 3.915h1.505L7.89 2.584a7.773 7.773 0 0 0-.84.665Zm4.079-2.008 5.923 5.923h1.503l-6.086-6.087c-.45.023-.898.078-1.34.164ZM4.574 8.226h-1.77l.784.693h1.584a8.454 8.454 0 0 1-.598-.693Zm9.479 0H5.984c1.469 1.477 3.656 2.377 5.977 2.422l2.092-2.422Zm-2.458 4.472 5.492-1.902 1.878-2.569h-3.508l-3.862 4.47Zm10.361-5.552h3.265a2.714 2.714 0 0 0 1.747-4.648 2.711 2.711 0 0 0-1.888-.773 3.127 3.127 0 0 0-3.123 3.124v2.297Zm3.659-3.73a.677.677 0 1 1-.134 1.348.677.677 0 0 1 .134-1.348Z"
+                        clip-rule="evenodd" />
+                </svg>
+            <h1>RAG Evaluation Toolkit</h1>
+        </div>
+        
+        <div class="section-container">
+            <div class="components-container">
+                
+                <div class="component-card">
+                    <div class="component-title">GENERATOR</div>
+                    <div class="component-value tooltip  text-green ">
+                        80.0%
+                            <span class="tooltiptext" id="fade">The Generator is the LLM inside the RAG to generate the answers.</span>
+                    </div>
+                    <div class="component-bar">
+                        <progress max="100" value=80.0 class=" progress-green ">80.0%</progress>
+                    </div>
+                </div>
+                
+                <div class="component-card">
+                    <div class="component-title">RETRIEVER</div>
+                    <div class="component-value tooltip  text-orange ">
+                        50.0%
+                            <span class="tooltiptext" id="fade">The Retriever fetches relevant documents from the knowledge base according to a user query.</span>
+                    </div>
+                    <div class="component-bar">
+                        <progress max="100" value=50.0 class=" progress-orange ">50.0%</progress>
+                    </div>
+                </div>
+                
+                <div class="component-card">
+                    <div class="component-title">REWRITER</div>
+                    <div class="component-value tooltip  text-green ">
+                        100.0%
+                            <span class="tooltiptext" id="fade">The Rewriter modifies the user query to match a predefined format or to include the context from the chat history.</span>
+                    </div>
+                    <div class="component-bar">
+                        <progress max="100" value=100.0 class=" progress-green ">100.0%</progress>
+                    </div>
+                </div>
+                
+                <div class="component-card">
+                    <div class="component-title">ROUTING</div>
+                    <div class="component-value tooltip  text-green ">
+                        100.0%
+                            <span class="tooltiptext" id="fade">The Router filters the query of the user based on his intentions (intentions detection).</span>
+                    </div>
+                    <div class="component-bar">
+                        <progress max="100" value=100.0 class=" progress-green ">100.0%</progress>
+                    </div>
+                </div>
+                
+                <div class="component-card">
+                    <div class="component-title">KNOWLEDGE_BASE</div>
+                    <div class="component-value tooltip  text-orange ">
+                        50.0%
+                            <span class="tooltiptext" id="fade">The knowledge base is the set of documents given to the RAG to generate the answers. Its scores is computed differently from the other components: it is the difference between the maximum and minimum correctness score across all the topics of the knowledge base.</span>
+                    </div>
+                    <div class="component-bar">
+                        <progress max="100" value=50.0 class=" progress-orange ">50.0%</progress>
+                    </div>
+                </div>
+                
+                <div class="overall-card">
+                    <div class="overall-title">Overall Correctness Score</div>
+                    <div class="overall-value">80%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-card">
+                <div class="section-title">RECOMMENDATION</div>
+                <span class="section-content">To improve your RAG system, focus primarily on enhancing the Generator, Retriever, and Router components to deal better with Simple Questions. Additionally, boosting the diversity and quality of the knowledge base for &#34;Others&#34; category can help to improve the overall topic score.</span>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-card">
+                <div class="section-title">CORRECTNESS BY TOPIC</div>
+                    <script type="text/javascript">
+        (function() {
+  const fn = function() {
+    Bokeh.safely(function() {
+      (function(root) {
+        function embed_document(root) {
+        const docs_json = '{"d7cbcf02-117f-4a95-9b91-ad2a81f4f544":{"version":"3.5.0","title":"Bokeh Application","roots":[{"type":"object","name":"Figure","id":"p1941","attributes":{"height":350,"width_policy":"max","x_range":{"type":"object","name":"DataRange1d","id":"p1943","attributes":{"start":0}},"y_range":{"type":"object","name":"FactorRange","id":"p1950","attributes":{"factors":["Appium Mobile Testing","Java Application Development","Others"]}},"x_scale":{"type":"object","name":"LinearScale","id":"p1951"},"y_scale":{"type":"object","name":"CategoricalScale","id":"p1952"},"title":{"type":"object","name":"Title","id":"p1948","attributes":{"text_color":"#E0E0E0","text_font":"Helvetica","text_font_size":"14pt"}},"outline_line_color":"#E0E0E0","outline_line_alpha":0.25,"renderers":[{"type":"object","name":"GlyphRenderer","id":"p1970","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1938","attributes":{"selected":{"type":"object","name":"Selection","id":"p1939","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1940"},"data":{"type":"map","entries":[["correctness",{"type":"ndarray","array":{"type":"bytes","data":"AAAAAAAAWUAAAAAAAABZQAAAAAAAAElA"},"shape":[3],"dtype":"float64","order":"little"}],["metadata_values",["Appium Mobile Testing","Java Application Development","Others"]],["colors",["#006837","#006837","#a50026"]]]}}},"view":{"type":"object","name":"CDSView","id":"p1971","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1972"}}},"glyph":{"type":"object","name":"HBar","id":"p1967","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"#1f77b4"},"fill_color":{"type":"value","value":"#14191B"}}},"nonselection_glyph":{"type":"object","name":"HBar","id":"p1968","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"#1f77b4"},"line_alpha":{"type":"value","value":0.1},"fill_color":{"type":"value","value":"#14191B"},"fill_alpha":{"type":"value","value":0.1},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"HBar","id":"p1969","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"#1f77b4"},"line_alpha":{"type":"value","value":0.2},"fill_color":{"type":"value","value":"#14191B"},"fill_alpha":{"type":"value","value":0.2},"hatch_alpha":{"type":"value","value":0.2}}}}},{"type":"object","name":"GlyphRenderer","id":"p1979","attributes":{"data_source":{"id":"p1938"},"view":{"type":"object","name":"CDSView","id":"p1980","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1981"}}},"glyph":{"type":"object","name":"HBar","id":"p1976","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"white"},"line_width":{"type":"value","value":2},"fill_color":{"type":"value","value":"#78BBFA"},"fill_alpha":{"type":"value","value":0.7}}},"nonselection_glyph":{"type":"object","name":"HBar","id":"p1977","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"white"},"line_alpha":{"type":"value","value":0.1},"line_width":{"type":"value","value":2},"fill_color":{"type":"value","value":"#78BBFA"},"fill_alpha":{"type":"value","value":0.1},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"HBar","id":"p1978","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"white"},"line_alpha":{"type":"value","value":0.2},"line_width":{"type":"value","value":2},"fill_color":{"type":"value","value":"#78BBFA"},"fill_alpha":{"type":"value","value":0.2},"hatch_alpha":{"type":"value","value":0.2}}}}},{"type":"object","name":"GlyphRenderer","id":"p1989","attributes":{"visible":false,"data_source":{"type":"object","name":"ColumnDataSource","id":"p1983","attributes":{"selected":{"type":"object","name":"Selection","id":"p1984","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1985"},"data":{"type":"map","entries":[["x",[0]],["y",[0]]]}}},"view":{"type":"object","name":"CDSView","id":"p1990","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1991"}}},"glyph":{"type":"object","name":"Line","id":"p1986","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#EA3829","line_width":2,"line_dash":[6]}},"nonselection_glyph":{"type":"object","name":"Line","id":"p1987","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#EA3829","line_alpha":0.1,"line_width":2,"line_dash":[6]}},"muted_glyph":{"type":"object","name":"Line","id":"p1988","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#EA3829","line_alpha":0.2,"line_width":2,"line_dash":[6]}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p1949","attributes":{"tools":[{"type":"object","name":"HoverTool","id":"p1963","attributes":{"renderers":"auto","tooltips":[["topic","@metadata_values"],["Correctness","@correctness{0.00}"]]}}]}},"toolbar_location":null,"left":[{"type":"object","name":"CategoricalAxis","id":"p1958","attributes":{"ticker":{"type":"object","name":"CategoricalTicker","id":"p1959"},"formatter":{"type":"object","name":"CategoricalTickFormatter","id":"p1960"},"axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1961"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"below":[{"type":"object","name":"LinearAxis","id":"p1953","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1954","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1955"},"axis_label":"Correctness (%)","axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1956"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"center":[{"type":"object","name":"Grid","id":"p1957","attributes":{"axis":{"id":"p1953"},"grid_line_color":"#E0E0E0","grid_line_alpha":0.25}},{"type":"object","name":"Grid","id":"p1962","attributes":{"dimension":1,"axis":{"id":"p1958"},"grid_line_color":"#E0E0E0","grid_line_alpha":0.25}},{"type":"object","name":"Span","id":"p1982","attributes":{"location":80.0,"dimension":"height","line_color":"#EA3829","line_width":2,"line_dash":[6]}},{"type":"object","name":"Legend","id":"p1992","attributes":{"border_line_alpha":0,"background_fill_color":"#111516","background_fill_alpha":0.5,"label_text_color":"#E0E0E0","label_text_font":"Helvetica","label_text_font_size":"1.025em","label_standoff":8,"glyph_width":15,"spacing":8,"items":[{"type":"object","name":"LegendItem","id":"p1993","attributes":{"label":{"type":"value","value":"Correctness on the entire Testset"},"renderers":[{"id":"p1989"}]}}]}}],"background_fill_color":"#14191B","border_fill_color":"#15191C"}}]}}';
+        const render_items = [{"docid":"d7cbcf02-117f-4a95-9b91-ad2a81f4f544","roots":{"p1941":"eb804ef8-b248-4765-9457-b9f030fe5f9b"},"root_ids":["p1941"]}];
+        root.Bokeh.embed.embed_items(docs_json, render_items);
+        }
+        if (root.Bokeh !== undefined) {
+          embed_document(root);
+        } else {
+          let attempts = 0;
+          const timer = setInterval(function(root) {
+            if (root.Bokeh !== undefined) {
+              clearInterval(timer);
+              embed_document(root);
+            } else {
+              attempts++;
+              if (attempts > 100) {
+                clearInterval(timer);
+                console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+              }
+            }
+          }, 10, root)
+        }
+      })(window);
+    });
+  };
+  if (document.readyState != "loading") fn();
+  else document.addEventListener("DOMContentLoaded", fn);
+})();
+    </script>
+
+                <div id="eb804ef8-b248-4765-9457-b9f030fe5f9b" data-root-id="p1941" style="display: contents;"></div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-card">
+                <div class="section-title">KNOWLEDGE BASE OVERVIEW</div>
+                    <script type="text/javascript">
+        (function() {
+  const fn = function() {
+    Bokeh.safely(function() {
+      (function(root) {
+        function embed_document(root) {
+        const docs_json = '{"0adedc11-8325-46ba-ba03-b68ffe7179c4":{"version":"3.5.0","title":"Bokeh Application","roots":[{"type":"object","name":"Tabs","id":"p1872","attributes":{"sizing_mode":"stretch_width","tabs":[{"type":"object","name":"TabPanel","id":"p1800","attributes":{"title":"Topic exploration","child":{"type":"object","name":"Figure","id":"p1749","attributes":{"sizing_mode":"stretch_width","x_range":{"type":"object","name":"Range1d","id":"p1758","attributes":{"start":-6.00483272075653,"end":2.9957086861133573}},"y_range":{"type":"object","name":"Range1d","id":"p1759","attributes":{"start":-5.923881649971008,"end":2.4674134254455566}},"x_scale":{"type":"object","name":"LinearScale","id":"p1760"},"y_scale":{"type":"object","name":"LinearScale","id":"p1761"},"title":{"type":"object","name":"Title","id":"p1756","attributes":{"text_color":"#E0E0E0","text_font":"Helvetica","text_font_size":"14pt"}},"outline_line_color":"#E0E0E0","outline_line_alpha":0.25,"renderers":[{"type":"object","name":"GlyphRenderer","id":"p1791","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1746","attributes":{"selected":{"type":"object","name":"Selection","id":"p1747","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1748"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"ReM0wC1fP8AcVsi+HKx5wOnc8L8tuCrAM5xCwMPoHcC+d4O/5RqJwLViYcC4ZnXAcfCjv2e/gMA+T1TAAzlrwP7AisD+D4LAQseFwNBxacABqZPAnzAxwAp0hL8Hk17A814bwJItGcCOoC7APsJDwBd0zb/1NzfAioNcwKMzMsBffNq/SwKnwEZtt8B0FpvAutqgwAa2aL92ysG+L++NviyUcsBL4Nm/VggCwIDDg8Bwyo3At0GcwI9wk8DPq0nAJDx0wCvWCr9ryKzAaSwNwFTHFcCeaCvA9t8lv9eGJMD9LEnAgrcAwBtRo8DSelfANgvovxQUpMAyxZ3A1sa2wHBassC32Wa/m/NjwFx5ZcA="},"shape":[68],"dtype":"float32","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"GVM+wOoRasDe0EvAqup2wPqTesD9VmnAhs+QwFOOicClfofAJ6dpwKuiXcANYUHAwT52wGDrG8BMnQvA+AISwCtBDsBHUeO/AhzJv58hf7/1pbO/FF52P0u9SsCU6tm/OPZUv74En78ELYy/aocjv2qiPL89KcW/rpecvw5eA8A2ECrAs09lwAFeTcCV1C/A7qpQwHPCmL/+g+O/+9lqwIcDCb6HqK2/joyOvcL6Sr5Ch2+/rBSCv+Z1zj1iF5c+kQMqP/3dRcCKxLS/GMo2PyJCTD5lFfS9DKt0wPf9CsCIYu++QI+ZvxEzDb+L0Ig/37FPwOhnFsALL2/Afq4SwPi3OMCXieq/R4KHwBfNWMA="},"shape":[68],"dtype":"float32","order":"little"}],["topic",["Others","Appium Mobile Testing","Appium Test Automation","Appium Mobile Testing","Appium Test Automation","Others","Others","Others","Appium Test Automation","Appium Server Management","Appium Mobile Testing","Appium Mobile Testing","Appium Test Automation","Java Application Development","Java Application Development","Java Application Development","Java Application Development","Java Application Development","Java Application Development","Others","Java Application Development","Others","Appium Test Automation","Java Application Development","Java Application Development","Java Application Development","Java Application Development","Java Application Development","Others","Java Application Development","Java Application Development","Java Application Development","Others","Appium Server Management","Appium Server Management","Appium Server Management","Appium Server Management","Others","Others","Appium Test Automation","Others","Others","Others","Others","Java Application Development","Java Application Development","Others","Others","Others","Appium Test Automation","Others","Others","Java Application Development","Java Application Development","Appium Test Automation","Others","Java Application Development","Java Application Development","Others","Others","Appium Test Automation","Appium Server Management","Appium Server Management","Appium Server Management","Appium Server Management","Others","Appium Mobile Testing","Appium Mobile Testing"]],["id",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67]],["content",["Start To End Guide\\nMobile Test Automation\\nWith Appium","CONTENTS\\n01 Introduction to Appium\\n02 Mobile test automation approaches\\n03 Appium overview and architecture\\n04 Appium setup for Windows\\n05 Your /f_irst Appium script - Android\\n06 Starting Appium and launch the app from code - Android\\n07 Appium setup for Mac\\n08 Appium Inspector\\n09 Your /f_irst Appium Script - iOS \\n10 Starting Appium and launch the app from code - IOS","01\\nINTRODUCTION TO APPIUM","Appium is an open source mobile app UI testing framework. You can test all types of mobile apps \\nand perform automation test on physical devices as well as on emulators and simulators. Appium does not have a dependency on mobile device OS and It supports cross-platform app testing as a single API works for both Android and iOS. Appium supports many popular languag-es like C, PHP, Python, C#, Java, Ruby, JavaScript, etc.  \\nHow Appium works?\\nWhen Appium is installed then a server is setup on your ...","02\\nAPPROACHES TO\\nTEST AUTOMATION","There are two approaches for mobile test automation, Image-based and Object-based \\napproach. Let&#x27;s understand both in detail. \\nImage-Based Approach for Test Automation \\nThe object-based approach of test automation This technique of object identi\\ufb01cation is based on the image processing attributes of the objects \\nin the Application Under Test (AUT). Example: Automate user options like \\"click, type, drag-drop, mouse actions, etc.\\" Visual veri\\ufb01cation of the expected output        Not dependent on th...","This technique of test automation is based on recognizing the nativity of the objects in AUT. This \\nnativity reorganization process for each individual object in the application is carried out using di\\ufb00erent attributes that are assigned to the object. It is used to extract the application object identi\\ufb01er with its properties from the actual native oper-ating system source code, just like the developer used. This is an accurate and fast method to recognize the buttons, lists and other objects use...","of the object involved restricts these techniques ability to function in test scenarios that require \\nthird-party application access. This reduces the automation coverage of utilizing this technique.\\nMerits Demerits\\n100% accuracy in object \\ufb01ndingFaster than image-based approachSupports multiple languagesDoes not capture GUI defectsLanguages and implementation are di\\ufb00erent for di\\ufb00erent platformsIt is completely functional, does not defect UX defects\\nWhich approach should we choose?\\nAs we have see...","03\\nAPPIUM OVERVIEW\\nAND ARCHITECTURE","Appium is an HTTP server that manages Web Driver sessions. On iOS devices, Appium proxies \\ncommand to a UI automation script running on Mac Instruments environment. Apple provides an application called instruments which are used to do a lot of activities like pro\\ufb01ling, controlling and building iOS apps. It also provides an automation component where you can write some commands in JavaScript which uses UI Automation APIs which interact with the app user inter-face. Appium uses these same librarie...","The Webdriver Script sends a command in the form of HTTP (JSWP) to the Appium Server. Then \\nthe Appium Server will then decide as per the request which driver should be initiated. So, in this case, the Appium Server will initiate the XCUITest driver and it will pass the request to the Web-driverAgent which is an IPA (WebdriverAgent.xcproj) developed by Facebook. WebdriverAgent is responsible to send the command to the Application Under Test (AUT) to carry out the actions in the app. Then the res...","The situation is very similar in the case of Android where Appium proxies command to a UIAuto-\\nmator2 test case running on the device. UIAutomator2 is Android&#x27;s UI automation framework which supports running JUnit test cases directly into the device into the command line. It uses Java as the programing language but Appium will make it run from any of the web drivers sup-ported languages. \\nAppium Philosophy\\nTest the same app you submit to the marketplace.\\nYou shouldn\\u2019t be locked into a speci\\ufb01c la...","04\\nAPPIUM SETUP\\nFOR WINDOWS","There are four steps required to setup Appium, they are enabling the Android device for test, Test \\nenvironment setup, Appium Con\\ufb01gurations, Launch the app on the device. \\nEnable the\\nAndroid\\nDevice for TestTest\\nEnvironment\\nSetupAppium\\nCon\\ufb01gurationsLaunch App\\non Device\\nPre-requisites for using Appium\\nAndroid Developer Options in device An Android device with OS 4.2+ \\nAUT(Application Under Test) \\ufb01le (.apk) Phone USB Drivers  Java (JDK) Android Studio (SDK) Eclipse Selenium Standalone JAR Appium Ja...","Every Android smartphone contains a secret set of Android developer options which are used by \\napp developers who need additional functions to test their apps they are making for Android devices. It allows you to enable debugging over USB, capture bug reports on your Android device and show CPU usage on the screen to measure the impact of your software. To enable developer option in the phones to go to the settings, click on the about phone options and click on the build number 7 times to enable...","An Android device with OS 4.2+ \\nAUT(Application Under Test) \\ufb01le (.apk) Phone USB Drivers  Java (JDK) Android Studio (SDK) Eclipse Selenium Standalone JAR Appium Java Client Appium for Windows .NET Framework 4.5\\nDoing so will display a toast message for enabling the develop-\\ner option. the current message appears if the developer mes-sage is already enabled on the phone. \\nPhone Drivers \\nThe phone can communicate with the PC only if there are proper drivers installed for the USB cable. Each phone ...","An Android device with OS 4.2+ \\nAUT(Application Under Test) \\ufb01le (.apk) Phone USB Drivers  Java (JDK) Android Studio (SDK) Eclipse Selenium Standalone JAR Appium Java Client Appium for Windows .NET Framework 4.5Double click on the \\ufb01le and you will see the Dalvic debug monitor window.\\nIf your DDMS option is enabled i.e. if you have installed the PDA net software and connected the \\ndevice to the machine, that device should be detected in this monitor. Now let&#x27;s move on to the second step.\\n11","An Android device with OS 4.2+ \\nAUT(Application Under Test) \\ufb01le (.apk) Phone USB Drivers  Java (JDK) Android Studio (SDK) Eclipse Selenium Standalone JAR Appium Java Client Appium for Windows .NET Framework 4.5Test Environment Setup\\nFirst, you need to download JDK from the Oracle website. \\nOnce downloaded, install it to your machine. Now you need to set the Java installation path in \\nyour Environment variable. Right click on computer option in the start menu and select the prop-\\nerties option. S...","An Android device with OS 4.2+ \\nAUT(Application Under Test) \\ufb01le (.apk) Phone USB Drivers  Java (JDK) Android Studio (SDK) Eclipse Selenium Standalone JAR Appium Java Client Appium for Windows .NET Framework 4.5\\nSet the path of JDK to variable value and then click OK. \\nTo get an Android emulator you need to go to www.developer.android.com\\\\studio#downloads \\nand Scroll down to Command line tools only section to download the zip \\ufb01le of SDK tools pack-age for Windows.\\nDon&#x27;t download the EXE \\ufb01le. Once...","forms; Android-28 and then hit enter. So now you will be able to see Platform tools and Platform \\n13Then select the new option and enter the new variable name as JAVA_HOME.","folders in now folder you created for the extracted \\ufb01les. \\nClick on platform tools and copy the address bar text and then again go to an environment varia-ble. Then go to the path, a new window will pop up, make a new path and enter the copied text there and then click on OK.   To download Appium go to www.appium.io and click on the download button.\\nUnder the latest version, click on the Appium-windows-1.12.1.exe \\ufb01le. Once the \\ufb01le is downloaded, open the appium.exe \\ufb01le. Click on the Start Server...","15\\nThen in the server window click on the Start inspection session icon at the top right corner.","05\\nFIRST APPIUM\\nSCRIPT - ANDROID","From this section onwards, we will start handling the application by writing the Java code. We will \\nrequire the following software:               Eclipse              Selenium standalone Jar               Appium Java ClientThis process consists of \\ufb01ve steps as depicted in the picture below.\\nCollect the\\nRequired\\nLibrariesCreate\\na java Project\\nin EclipseSet the Android\\nSDK Path into\\nEclipseAdd the\\nLibraries\\nto ProjectCreate a Class\\nand Import\\nthe Required\\nPackages\\nFirst, we need to collect the Se...","Now to create a java project download Eclipse from eclipse.org/downloads. Launch Eclipse and \\nselect the workspace location. \\n18","To set the Android SDK path into Eclipse, click on the Windows tab in the menu bar and select \\nPreferences in the drop-down list. \\nThen select the Android option and browse your Android SDK location and click on Apply. \\n19","Launch Eclipse and right click on Package Explorer. Then select a new Java Project.\\nEnter a project name and click \\ufb01nish. \\nOnce the project is created, add a folder to the project, for the project dependency \\ufb01les [Selenium Standalone] and [Appium Client Library] which you have downloaded. \\n20","Copy the downloaded \\ufb01le into the newly created project dependencies folder. Select both \\ufb01les \\nand right click. Then select the add to Build path option and then Add to Build Path. Thus both classes have been added to your project reference libraries.\\nCreate a class and import the required packages. Now right click on the src folder, hover the \\nmouse over the new option and select the Class option.\\n21","Provide a package name, the name of class then select the main method check box.\\n22","You need to de\\ufb01ne a public class variable of AndroidDriver as your \\ufb01rst line of code. You will now \\nsee an error for an android driver. Now hover your mouse over the error, you will get a list of quick \\n\\ufb01xes. Select Import &#x27;AndroidDriver&#x27;. Once you select the import package option, the android \\ndriver package will be imported and the error will be removed.\\n23A .java \\ufb01le within the package is created in Package Explorer panel. An auto-generated the main method is generated on the right panel.","Once you select the import package option, the DesiredCapabilities package will be imported \\nand the error will be removed. Now set the DesiredCapabilities and also provide the package of an application and the name of application launcher activity. Now you need to instantiate the Android driver.To do this we need to have two parameters, the \\ufb01rst is the Appium server address with the port \\nnumber which it is running and the Capabilities. \\n24Create an object of DesiredCapabilities. Again you will...","Hover mouse on URL and import URL from Java.net. You will get an error for complete new URL \\nsection, hover mouse on the error and select Add throws declaration. By doing so exception has \\nbeen added into your main method. \\nNow start the Appium server and connect a device to the system. Now return to Eclipse and exe-\\ncute the code. This will launch the app in the device. In the code, we have declared the class as public so that we can access it anywhere inside out test.\\nThe java main method is h...","06\\nSTARTING APPIUM SERVER\\nAND LAUNCHING THE APP\\nFROM CODE - ANDROID","The code structure is segregated into three parts, the \\ufb01rst part of the code starts the Appium \\nserver, the second part stops the Appium server. \\nThe third part is the main method which is necessary to execute the class and from this main \\nmethod, all the above method are called. Starting Appium from code requires a path of two \\ufb01les which are kept inside the Appium folder.  node.exe  main.js\\nIn the code highlighted in red, we have called process class which is a Java class and declared it \\nstati...","We then created a start server variable and pass the path to node.exe and main.js, highlighted in \\nyellow. In the code highlighted in green, we added both paths into the same variable with spaces and created a method called startAppiumServer() which takes care of the Appium server startup process. Next step is to create an object of Runtime class which is again a java class and call the method getRuntime(), highlighted in blue. We will pass the variable \\"STARTSERVER\\" into runt-\\nime.exec() method...","Here we need to create another method named stopAppiumServer(). We again verify the state of \\nthe process and if it is not null, call a method of process class destroy().\\nSo now we know how to start and stop the Appium server from code. Let&#x27;s try to install and launch \\nan app on a mobile device. Let&#x27;s see how we can install a .apk \\ufb01le on an Android device and launch it automatically without providing the path in Appium Server.Stop Appium Server\\n28","Installing and launching the application\\nTo begin with, we call the stopAppiumServer() method to verify if any instance of Appium Server \\nis already running and if so, then it closes that instance, as highlighted in red. The method high-\\nlighted in yellow starts the Appium Server.\\nThen store the apk path \\ufb01le into a variable of File class, which is a Java class as highlighted in \\nblue. Create another variable of File class app. It takes two parameters:  The absolute path of the apk \\ufb01le.  Name of ...","30The complete code is shown here.","31","07\\nAPPIUM FOR IOS","Pre-requisite\\n Mac Book \\n Xcode  Simulator or real device  Appium  Eclipse Java\\nThe \\ufb01rst step is to install Xcode in the Mac Book. To do that, open app store and search for Xcode and click on the Get  button to download Xcode.\\nThen click on the Install App option. This will install Xcode on your Mac machine. Now click on the Agree button if you agree with the terms and conditions and it will start installing components. Once the Xcode is installed, you need to select \\"Create a new Xcode project\\"...","You may select any of the templates or leave default settings as they are. Click on the next button \\nto navigate to the next screen. Now you will be asked to provide a product name and other product-related settings. \\n34","Enter the required details and click on the next button. In the last seen of product settings, you will \\nbe asked to give the location in which to save your project. Select the location anywhere as per your requirements and click on the create button. \\nOnce the project is loaded go to the Product menu option and click on the Run  option. \\n35","Once you click on the run option, it will launch iOS simulator. \\nNow right click on the simulator icon on the doc panel and select the keep in doc panel. In this \\nway, you don&#x27;t need to start Xcode to launch the simulator. Thus you don&#x27;t need to open the Xcode project each time to launch iPhone simulator. If you want to see the list of simulators, got to the Window menu and select the Devices option. You will get a list of all the simulators availa-ble with this version of Xcode. \\nInstalling JDK...","Now you need to set the Java installation path in your environment variable. Open a terminal and \\nwrite \\"open.bash_pro\\ufb01le\\". \\nIf \\u201c.bash_pro\\ufb01le\\u201d does not exist then execute the command \\u201ctouch~/.bash_pro\\ufb01le\\u201d. This will create \\nthe \\ufb01le. So when you execute the command, it opens the \\u201c.bash_pro\\ufb01le\\u201d \\ufb01le.\\nCopy the path to JDK home, write \\"export JAVA_Home=&lt;Path to JDK Home&gt; \\" and then save this \\n\\ufb01le. Open command prompt and execute the java - version command. Open Appium.io and click \\non Download Appium...","Now download the latest .dmg \\ufb01le and once downloaded, double click on the .dmg \\ufb01le.\\nIt will open a new window where you need to drag and drop Appium into the application folder.\\n38","Search for Appium and double click on the Appium icon. This will launch the Appium server on \\nyour Mac machine.\\nTo Launch Appium on a simulator click on the Start Server button. \\nNow click on the Start Inspector Session button in the Appium server. \\n39","Once you select the cloud provider from the list you can click on Done.\\nThen you need to enter the Host name, User name, API Key, Desired Capabilities and then click \\non Start Session.\\n40","Your simulator is now connected. \\n41","08\\nAPPIUM INSPECTOR","In our previous chapter on Android, we learned about UI Automator Viewer, Which is available on \\nAndroid SDK, to get the properties of the application object. In the case of iOS, Appium itself pro-vides an Inspector which helps users to locate those elements in the application.First, open the simulator by clicking on the dock option. \\nNow in the Device/Simulators window, select the simulator. Open the Appium Desktop and keep \\nthe simulator side by side. \\n43","Once the inspector is started, select any of the objects on the screen. It will show you the complete \\nhierarchy and properties of that object. \\nAt the top of the window, you can see the Record button which is used to record all the actions \\ntaken and record the script.\\n44","To select any object, click on the Select Element button and then you can use Tap button to click \\non an object, Send Keys to enter text and clear to undo the action. \\nAs soon as you perform an action on an object, it is recorded in the form of a script. \\n45","Once you are done with the recording you can copy the script and paste in eclipse editor. \\n46","09\\nYOUR FIRST APPIUM\\nSCRIPT IN IOS","Now let&#x27;s try to launch an app with code. To write code in Java you need Eclipse, Selenium Stan-\\ndalone JAR, Appium Java Client. First, go to eclipse.org and download Eclipse. Now download Selenium JAR \\ufb01le from the seleniumhq.org/download page.Next, you need to get Appium client libraries based on the programming language you use. Now you can launch Eclipse and select a workspace location.\\nCreate a new Java project and enter your project name. \\n48","Now go to project properties and then select the Java build path option.\\nThen click on the \\"Add External JARs\\" option. Now add both the Selenium server and the Java \\nclient \\ufb01les. Now go to the \\ufb01le menu and create a new class.\\n49","In the Java class dialogue box enter the package name, class name and select the main class \\ncheckbox.\\nA class has been created with main method.\\n50","We have already shown how to record a script using Appium inspector. Now copy the recorded \\nscript and paste it into the class we have created. \\nIn your \\ufb01rst line of code, you need to de\\ufb01ne a public class variable of IOSDirver and import the \\npackages by hovering the mouse over them. You also need to import the packages for capabili-\\nties class. Delete the AppiumDriver and write IOSDriver instead. \\n51","Click this button to execute the code; it will start the simulator and perform all the actions we have \\nrecorded.  \\n52","10\\nSTARTING APPIUM AND\\nLAUNCHING THE APPLICATION\\nFROM CODE - IOS","In this section, we will learn how to start the Appium server and how to provide the path of the \\n.app \\ufb01le in the server to be installed on the device. Let&#x27;s have a look at the code structure to handle the scenario.\\nNow starting Appium from code requires the path of two \\ufb01les which are kept in the Appium folder.\\nExample:C:\\\\Program Files\\\\Appium\\\\resources\\\\app\\\\node_modules\\\\nodejs\\\\node.exeC:\\\\Program Files\\\\Appium\\\\resources\\\\app\\\\node_modules\\\\appium\\\\lib\\\\main.js\\nStart and stop the Appium server\\n54","In the code which is highlighted by the yellow box, we have called command line class which is \\nprovided by Apache common&#x27;s package. Within this command line, we have passed the Appium \\n\\"node\\" and \\"appium.js\\" \\ufb01les which are highlighted in the green box. The box in blue contains the address of Apium server and the red box has the port of Appium server.This next picture is in continuation to the last picture of code we explained.","The code line highlighted in yellow ensures that the application does not reset on the device. The red box contains the classes derived from the Appium common package, that handle the pro-cess. In the second method we have called \\"getRuntime()\\" method and execute the \\"Killall node\\" command. This method will close running Appium server instances. Let&#x27;s try to install and launch an application on a simulator/device.We will also see how to install a .app \\ufb01le on an iOS simulator/device and launch it...","Let&#x27;s have a look at the code and understand the functioning.\\nFirst, we call the \\"stopAppiumServer()\\" method to verify if any instances of Appium server is \\nalready running, if so, then it closes that instance. Store the path of the .app \\ufb01le into a variable of \\"File\\" class, which is a Java class as highlighted in the yellow box. in the green box we created another variable of \\"File\\" class \\"app\\". It takes two parameters, the absolute path of the .app \\ufb01le and name of the .app \\ufb01le. The absolute pat...","57","About pCloudy\\npCloudy.com, based out of California is a leading mobile app testing platform with more than \\n50,000 users across the globe. It is a one-of-its-kind full life cycle testing platform for mobile apps developers, QA and mobile DevOps teams. It o\\ufb00ers tools for mobile DevOps, including test automation, manual testing, performance testing for web &amp; mobile applications. It also enables mobile application testing across a large section of real mobile devices and seamlessly inte-\\ngrates wit...","Capabilities\\nhttps:/ /github.com/pankyopkey/pCloudy-sample-pro-jects/tree/master/Java/Advanced(Continued...)\\nAppium tips and tricks\\nhttps:/ /www.pcloudy.com/developer-and-tester-forum/ques-tion-and-answers/appium-tips-and-tricks/\\nAppium TestNG Whitepaper\\nhttps:/ /www.pcloudy.com/appium-testNG-framework-and-multi-de-vice-automation-execution/landing-page.php\\nRetrieve APIs\\nhttps:/ /content.pcloudy.com/apidocs/index.html\\nAppium integration architecture with pCloudy\\nhttps:/ /www.youtube.com/watch?v=..."]],["color",{"type":"ndarray","array":["#999","#ff7f0e","#1f77b4","#ff7f0e","#1f77b4","#999","#999","#999","#1f77b4","#aec7e8","#ff7f0e","#ff7f0e","#1f77b4","#ffbb78","#ffbb78","#ffbb78","#ffbb78","#ffbb78","#ffbb78","#999","#ffbb78","#999","#1f77b4","#ffbb78","#ffbb78","#ffbb78","#ffbb78","#ffbb78","#999","#ffbb78","#ffbb78","#ffbb78","#999","#aec7e8","#aec7e8","#aec7e8","#aec7e8","#999","#999","#1f77b4","#999","#999","#999","#999","#ffbb78","#ffbb78","#999","#999","#999","#1f77b4","#999","#999","#ffbb78","#ffbb78","#1f77b4","#999","#ffbb78","#ffbb78","#999","#999","#1f77b4","#aec7e8","#aec7e8","#aec7e8","#aec7e8","#999","#ff7f0e","#ff7f0e"],"shape":[68],"dtype":"object","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1792","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1793"}}},"glyph":{"type":"object","name":"Scatter","id":"p1788","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.7},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.7}}},"nonselection_glyph":{"type":"object","name":"Scatter","id":"p1789","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_alpha":{"type":"value","value":0.1},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.1},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"Scatter","id":"p1790","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_alpha":{"type":"value","value":0.2},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.2},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.2}}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p1757","attributes":{"logo":"grey","tools":[{"type":"object","name":"HoverTool","id":"p1772","attributes":{"renderers":"auto","tooltips":"\\n    &lt;div style=\\"width:400px;\\"&gt;\\n    &lt;b&gt;Document id:&lt;/b&gt; @id &lt;br&gt;\\n    &lt;b&gt;Topic:&lt;/b&gt; @topic &lt;br&gt;\\n    &lt;b&gt;Document Content:&lt;/b&gt; @content\\n    &lt;/div&gt;\\n    "}},{"type":"object","name":"PanTool","id":"p1773"},{"type":"object","name":"WheelZoomTool","id":"p1774","attributes":{"renderers":"auto"}},{"type":"object","name":"BoxZoomTool","id":"p1775","attributes":{"overlay":{"type":"object","name":"BoxAnnotation","id":"p1776","attributes":{"syncable":false,"line_color":"black","line_alpha":1.0,"line_width":2,"line_dash":[4,4],"fill_color":"lightgrey","fill_alpha":0.5,"level":"overlay","visible":false,"left":{"type":"number","value":"nan"},"right":{"type":"number","value":"nan"},"top":{"type":"number","value":"nan"},"bottom":{"type":"number","value":"nan"},"left_units":"canvas","right_units":"canvas","top_units":"canvas","bottom_units":"canvas","handles":{"type":"object","name":"BoxInteractionHandles","id":"p1782","attributes":{"all":{"type":"object","name":"AreaVisuals","id":"p1781","attributes":{"fill_color":"white","hover_fill_color":"lightgray"}}}}}}}},{"type":"object","name":"ResetTool","id":"p1783"},{"type":"object","name":"SaveTool","id":"p1784"}]}},"left":[{"type":"object","name":"LinearAxis","id":"p1767","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1768","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1769"},"axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1770"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"below":[{"type":"object","name":"LinearAxis","id":"p1762","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1763","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1764"},"axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1765"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"center":[{"type":"object","name":"Grid","id":"p1766","attributes":{"axis":{"id":"p1762"},"grid_line_color":"white","grid_line_alpha":0.25}},{"type":"object","name":"Grid","id":"p1771","attributes":{"dimension":1,"axis":{"id":"p1767"},"grid_line_color":"white","grid_line_alpha":0.25}},{"type":"object","name":"Legend","id":"p1794","attributes":{"title":"Knowledge Base Tospics","title_text_color":"#B1B1B1","title_text_font_style":"bold","border_line_alpha":0,"background_fill_color":"#111516","background_fill_alpha":0.5,"label_text_color":"#E0E0E0","label_text_font":"Helvetica","label_text_font_size":"1.025em","label_standoff":8,"glyph_width":15,"spacing":8,"items":[{"type":"object","name":"LegendItem","id":"p1795","attributes":{"label":{"type":"value","value":"Appium Mobile Testing"},"renderers":[{"id":"p1791"}],"index":1}},{"type":"object","name":"LegendItem","id":"p1796","attributes":{"label":{"type":"value","value":"Appium Server Management"},"renderers":[{"id":"p1791"}],"index":9}},{"type":"object","name":"LegendItem","id":"p1797","attributes":{"label":{"type":"value","value":"Appium Test Automation"},"renderers":[{"id":"p1791"}],"index":2}},{"type":"object","name":"LegendItem","id":"p1798","attributes":{"label":{"type":"value","value":"Java Application Development"},"renderers":[{"id":"p1791"}],"index":13}},{"type":"object","name":"LegendItem","id":"p1799","attributes":{"label":{"type":"value","value":"Others"},"renderers":[{"id":"p1791"}],"index":0}}]}}],"background_fill_color":"#14191B","border_fill_color":"#15191C"}}}},{"type":"object","name":"TabPanel","id":"p1871","attributes":{"title":"Failures","child":{"type":"object","name":"Figure","id":"p1805","attributes":{"sizing_mode":"stretch_width","x_range":{"type":"object","name":"Range1d","id":"p1814","attributes":{"start":-6.00483272075653,"end":2.9957086861133573}},"y_range":{"type":"object","name":"Range1d","id":"p1815","attributes":{"start":-5.923881649971008,"end":2.4674134254455566}},"x_scale":{"type":"object","name":"LinearScale","id":"p1816"},"y_scale":{"type":"object","name":"LinearScale","id":"p1817"},"title":{"type":"object","name":"Title","id":"p1812","attributes":{"text_color":"#E0E0E0","text_font":"Helvetica","text_font_size":"14pt"}},"outline_line_color":"#E0E0E0","outline_line_alpha":0.25,"renderers":[{"type":"object","name":"GlyphRenderer","id":"p1846","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1801","attributes":{"selected":{"type":"object","name":"Selection","id":"p1802","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1803"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"dsrBvpItGcAcrHnAgrcAwLfZZr8="},"shape":[5],"dtype":"float32","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"/oPjv74En7+q6nbAQI+Zv5eJ6r8="},"shape":[5],"dtype":"float32","order":"little"}],["topic",["Others","Java Application Development","Appium Mobile Testing","Java Application Development","Others"]],["correctness",[false,true,true,true,true]],["questions",["What is the number 31?","What are the steps to configure the Android SDK path in the Eclipse development environment?","In the context of Appium&#x27;s functioning and its ability to test all types of mobile apps, how does it overcome the limitations of object-based approach that restricts third-party application access in test scenarios?","As a developer setting up Appium for the first time, I&#x27;m a bit confused about creating a Java class with the main method. Can you guide me on what should I do in the Java class dialogue box?","What is the significance of the number 57 and can you provide more information about it?"]],["agent_answer",["I don&#x27;t have enough information to answer this question.","To configure the Android SDK path in the Eclipse development environment, you need to click on the Windows tab in the menu bar, select Preferences, then choose the Android option. Browse for your Android SDK location and click on Apply.","Appium overcomes the limitations of the object-based approach by not having a dependency on mobile device OS and supporting cross-platform app testing. This allows Appium to work on both Android and iOS devices, including emulators and simulators, and execute commands on these devices through a server setup on the user&#x27;s machine. Additionally, Appium uses mobile test automation frameworks like Apple instruments or UIAutomator2 to drive the UI of apps, which helps in testing various types of mobile apps regardless of third-party application access restrictions.","In the Java class dialogue box, you need to enter the package name, class name, and then select the main class checkbox. This will create a class with a main method, which is necessary for executing the class.","I don&#x27;t have enough information to answer this question."]],["reference_answer",["31","To set the Android SDK path into Eclipse, click on the Windows tab in the menu bar and select Preferences in the drop-down list. Then select the Android option and browse your Android SDK location and click on Apply.","Appium is an open source mobile app UI testing framework. It can test all types of mobile apps and perform automation test on physical devices, emulators, and simulators. It does not have a dependency on mobile device OS and supports cross-platform app testing as a single API works for both Android and iOS. Appium supports many popular languages like C, PHP, Python, C#, Java, Ruby, JavaScript, etc. When Appium is installed, a server is set up on your machine that exposes the REST API. It receives a command request from the client and executes that command on Android or iOS mobile devices, then responds back with an HTTP response. It uses mobile test automation frameworks like Apple instruments or UIAutomator2 to drive the UI of apps.","In the Java class dialogue box, you should enter the package name, class name and select the main class checkbox.","The context does not provide information on the significance or additional information about the number 57."]],["id",[38,25,3,57,65]],["content",["31","To set the Android SDK path into Eclipse, click on the Windows tab in the menu bar and select \\nPreferences in the drop-down list. \\nThen select the Android option and browse your Android SDK location and click on Apply. \\n19","Appium is an open source mobile app UI testing framework. You can test all types of mobile apps \\nand perform automation test on physical devices as well as on emulators and simulators. Appium does not have a dependency on mobile device OS and It supports cross-platform app testing as a single API works for both Android and iOS. Appium supports many popular languag-es like C, PHP, Python, C#, Java, Ruby, JavaScript, etc.  \\nHow Appium works?\\nWhen Appium is installed then a server is setup on your ...","In the Java class dialogue box enter the package name, class name and select the main class \\ncheckbox.\\nA class has been created with main method.\\n50","57"]],["color",["#ba0e0e","#0a980a","#0a980a","#0a980a","#0a980a"]]]}}},"view":{"type":"object","name":"CDSView","id":"p1847","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1848"}}},"glyph":{"type":"object","name":"Scatter","id":"p1843","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.7},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.7}}},"nonselection_glyph":{"type":"object","name":"Scatter","id":"p1844","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_alpha":{"type":"value","value":0.1},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.1},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"Scatter","id":"p1845","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_alpha":{"type":"value","value":0.2},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.2},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.2}}}}},{"type":"object","name":"GlyphRenderer","id":"p1861","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1852","attributes":{"selected":{"type":"object","name":"Selection","id":"p1853","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1854"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"ReM0wC1fP8AcVsi+HKx5wOnc8L8tuCrAM5xCwMPoHcC+d4O/5RqJwLViYcC4ZnXAcfCjv2e/gMA+T1TAAzlrwP7AisD+D4LAQseFwNBxacABqZPAnzAxwAp0hL8Hk17A814bwJItGcCOoC7APsJDwBd0zb/1NzfAioNcwKMzMsBffNq/SwKnwEZtt8B0FpvAutqgwAa2aL92ysG+L++NviyUcsBL4Nm/VggCwIDDg8Bwyo3At0GcwI9wk8DPq0nAJDx0wCvWCr9ryKzAaSwNwFTHFcCeaCvA9t8lv9eGJMD9LEnAgrcAwBtRo8DSelfANgvovxQUpMAyxZ3A1sa2wHBassC32Wa/m/NjwFx5ZcA="},"shape":[68],"dtype":"float32","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"GVM+wOoRasDe0EvAqup2wPqTesD9VmnAhs+QwFOOicClfofAJ6dpwKuiXcANYUHAwT52wGDrG8BMnQvA+AISwCtBDsBHUeO/AhzJv58hf7/1pbO/FF52P0u9SsCU6tm/OPZUv74En78ELYy/aocjv2qiPL89KcW/rpecvw5eA8A2ECrAs09lwAFeTcCV1C/A7qpQwHPCmL/+g+O/+9lqwIcDCb6HqK2/joyOvcL6Sr5Ch2+/rBSCv+Z1zj1iF5c+kQMqP/3dRcCKxLS/GMo2PyJCTD5lFfS9DKt0wPf9CsCIYu++QI+ZvxEzDb+L0Ig/37FPwOhnFsALL2/Afq4SwPi3OMCXieq/R4KHwBfNWMA="},"shape":[68],"dtype":"float32","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1862","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1863"}}},"glyph":{"type":"object","name":"Scatter","id":"p1858","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"value","value":"grey"},"line_alpha":{"type":"value","value":0.2},"fill_color":{"type":"value","value":"grey"},"fill_alpha":{"type":"value","value":0.2},"hatch_color":{"type":"value","value":"grey"},"hatch_alpha":{"type":"value","value":0.2}}},"nonselection_glyph":{"type":"object","name":"Scatter","id":"p1859","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"value","value":"grey"},"line_alpha":{"type":"value","value":0.1},"fill_color":{"type":"value","value":"grey"},"fill_alpha":{"type":"value","value":0.1},"hatch_color":{"type":"value","value":"grey"},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"Scatter","id":"p1860","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"value","value":"grey"},"line_alpha":{"type":"value","value":0.2},"fill_color":{"type":"value","value":"grey"},"fill_alpha":{"type":"value","value":0.2},"hatch_color":{"type":"value","value":"grey"},"hatch_alpha":{"type":"value","value":0.2}}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p1813","attributes":{"logo":"grey","tools":[{"type":"object","name":"PanTool","id":"p1828"},{"type":"object","name":"WheelZoomTool","id":"p1829","attributes":{"renderers":"auto"}},{"type":"object","name":"BoxZoomTool","id":"p1830","attributes":{"overlay":{"type":"object","name":"BoxAnnotation","id":"p1831","attributes":{"syncable":false,"line_color":"black","line_alpha":1.0,"line_width":2,"line_dash":[4,4],"fill_color":"lightgrey","fill_alpha":0.5,"level":"overlay","visible":false,"left":{"type":"number","value":"nan"},"right":{"type":"number","value":"nan"},"top":{"type":"number","value":"nan"},"bottom":{"type":"number","value":"nan"},"left_units":"canvas","right_units":"canvas","top_units":"canvas","bottom_units":"canvas","handles":{"type":"object","name":"BoxInteractionHandles","id":"p1837","attributes":{"all":{"type":"object","name":"AreaVisuals","id":"p1836","attributes":{"fill_color":"white","hover_fill_color":"lightgray"}}}}}}}},{"type":"object","name":"ResetTool","id":"p1838"},{"type":"object","name":"SaveTool","id":"p1839"},{"type":"object","name":"HoverTool","id":"p1804","attributes":{"renderers":[{"id":"p1846"}],"tooltips":"\\n    &lt;div style=\\"width:400px;\\"&gt;\\n    &lt;b&gt;Document id:&lt;/b&gt; @id &lt;br&gt;\\n    &lt;b&gt;Topic:&lt;/b&gt; @topic &lt;br&gt;\\n    &lt;b&gt;Question:&lt;/b&gt; @questions &lt;br&gt;\\n    &lt;b&gt;agent Answer:&lt;/b&gt; @agent_answer &lt;br&gt;\\n    &lt;b&gt;Reference Answer:&lt;/b&gt; @reference_answer &lt;br&gt;\\n    &lt;b&gt;Correctness:&lt;/b&gt; @correctness &lt;br&gt;\\n    &lt;b&gt;Content:&lt;/b&gt; @content\\n    &lt;/div&gt;\\n    "}}]}},"left":[{"type":"object","name":"LinearAxis","id":"p1823","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1824","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1825"},"axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1826"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"below":[{"type":"object","name":"LinearAxis","id":"p1818","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1819","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1820"},"axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1821"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"center":[{"type":"object","name":"Grid","id":"p1822","attributes":{"axis":{"id":"p1818"},"grid_line_color":"white","grid_line_alpha":0.25}},{"type":"object","name":"Grid","id":"p1827","attributes":{"dimension":1,"axis":{"id":"p1823"},"grid_line_color":"white","grid_line_alpha":0.25}},{"type":"object","name":"Legend","id":"p1849","attributes":{"title":"Question Correctness","title_text_color":"#B1B1B1","title_text_font_style":"bold","border_line_alpha":0,"background_fill_color":"#111516","background_fill_alpha":0.5,"label_text_color":"#E0E0E0","label_text_font":"Helvetica","label_text_font_size":"1.025em","label_standoff":8,"glyph_width":15,"spacing":8,"items":[{"type":"object","name":"LegendItem","id":"p1850","attributes":{"label":{"type":"value","value":"False"},"renderers":[{"id":"p1846"}],"index":0}},{"type":"object","name":"LegendItem","id":"p1851","attributes":{"label":{"type":"value","value":"True"},"renderers":[{"id":"p1846"}],"index":1}}]}},{"type":"object","name":"LabelSet","id":"p1867","attributes":{"level":"glyph","source":{"type":"object","name":"ColumnDataSource","id":"p1864","attributes":{"selected":{"type":"object","name":"Selection","id":"p1865","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1866"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"1Ap9v5QppcCdNWTA5QFYwA=="},"shape":[4],"dtype":"float32","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"5dNkwE8XRcD9ombANRKpvw=="},"shape":[4],"dtype":"float32","order":"little"}],["topic",["Appium Test Automation","Appium Server Management","Appium Mobile Testing","Java Application Development"]]]}}},"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"text":{"type":"field","field":"topic"},"text_color":{"type":"value","value":"#B1B1B1"},"text_font_size":{"type":"value","value":"12pt"},"text_font_style":{"type":"value","value":"bold"},"text_align":{"type":"value","value":"center"}}}],"background_fill_color":"#14191B","border_fill_color":"#15191C"}}}}],"tabs_location":"below"}}]}}';
+        const render_items = [{"docid":"0adedc11-8325-46ba-ba03-b68ffe7179c4","roots":{"p1872":"aed4ac19-56ef-4dec-9381-469aab98a634"},"root_ids":["p1872"]}];
+        root.Bokeh.embed.embed_items(docs_json, render_items);
+        }
+        if (root.Bokeh !== undefined) {
+          embed_document(root);
+        } else {
+          let attempts = 0;
+          const timer = setInterval(function(root) {
+            if (root.Bokeh !== undefined) {
+              clearInterval(timer);
+              embed_document(root);
+            } else {
+              attempts++;
+              if (attempts > 100) {
+                clearInterval(timer);
+                console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+              }
+            }
+          }, 10, root)
+        }
+      })(window);
+    });
+  };
+  if (document.readyState != "loading") fn();
+  else document.addEventListener("DOMContentLoaded", fn);
+})();
+    </script>
+
+                <div id="aed4ac19-56ef-4dec-9381-469aab98a634" data-root-id="p1872" style="display: contents;"></div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-card">
+
+                <div class="section-title">SELECTED METRICS</div>
+
+                
+
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    function opentab(evt, name) {
+    // Declare all variables
+    let i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(name).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
